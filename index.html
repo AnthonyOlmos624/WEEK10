@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 10 Assignment</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <!-- Table Title -->
+    <h2 class="mb-4">Video Game Library</h2>
+
+    <!-- Bootstrap styled table -->
+    <table class="table table-striped" id="gameTable">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Rated</th>
+                <th>Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Default row -->
+            <tr>
+                <td>Call Of Duty</td>
+                <td>M for Mature</td>
+                <td>Shooting</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Form Title -->
+    <h2 class="mb-4">Add New Game</h2>
+
+    <!-- Bootstrap styled form -->
+    <form id="gameForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="rated">Rated:</label>
+            <input type="text" class="form-control" id="rated" required>
+        </div>
+        <div class="form-group">
+            <label for="genre">Genre:</label>
+            <input type="text" class="form-control" id="genre" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<!-- Bootstrap and JavaScript dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- JavaScript to handle form submission -->
+<script>
+    // Add an event listener for the form submission
+    document.getElementById('gameForm').addEventListener('submit', function(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const rated = document.getElementById('rated').value;
+        const genre = document.getElementById('genre').value;
+
+        // Create a new table row
+        const table = document.getElementById('gameTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+
+        // Insert new cells for the row
+        const nameCell = newRow.insertCell(0);
+        const positionCell = newRow.insertCell(1);
+        const departmentCell = newRow.insertCell(2);
+
+        // Add text to the cells
+        nameCell.textContent = name;
+        positionCell.textContent = rated;
+        departmentCell.textContent = genre;
+
+        // Clear the form fields
+        document.getElementById('gameForm').reset();
+    });
+</script>
+
+</body>
+</html>
