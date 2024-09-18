@@ -26,4 +26,4 @@
 
     // Clear the form fields
     document.getElementById('gameForm').reset();
-});
+    });
